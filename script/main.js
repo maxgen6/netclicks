@@ -1,4 +1,4 @@
-
+'use strict';
 //меню
 
 const leftMenu = document.querySelector('.left-menu'),
@@ -29,3 +29,18 @@ leftMenu.addEventListener('click', (event) => {
         hamburger.classList.add('open');
     }
 });
+
+//фото
+
+const photo = () => {
+    const img = document.querySelectorAll('.tv-card__img');
+        img.forEach((elem) => {
+            elem.addEventListener('mouseenter', (event) => {
+            let photoId = event.target.src;
+            event.target.src = event.target.dataset.backdrop;
+            
+            elem.addEventListener('mouseleave', (event) => event.target.src = photoId); 
+        });
+    });
+};
+photo();
